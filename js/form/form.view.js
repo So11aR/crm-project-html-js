@@ -16,13 +16,10 @@ function insertTestData(data) {
 
 function getFormInput() {
   return new FormData(elements.form)
-
-  // return {
-  //   name: elements.name.value,
-  //   email: elements.email.value,
-  //   phone: elements.phone.value,
-  //   product: elements.product.value,
-  // }
 }
 
-export {elements, insertTestData, getFormInput}
+function clearForm() {
+  elements.form.reset()
+}
+
+export {elements, insertTestData, getFormInput, clearForm}
