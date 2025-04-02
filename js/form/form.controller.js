@@ -1,5 +1,7 @@
 import getRandomData from './form.test-data.js'
 import * as view from './form.view.js'
+import * as model from './../model.js'
+
 
 function init() {
   renderTestData()
@@ -18,7 +20,7 @@ function renderTestData() {
 function formSubmitHandler(e) {
   e.preventDefault()
   const formData = view.getFormInput()
-  console.log(formData);
+  model.addRequest(formData)
 }
 
 init()
