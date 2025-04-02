@@ -14,4 +14,15 @@ function insertTestData(data) {
   elements.product.value = data.product
 }
 
-export {insertTestData}
+function getFormInput() {
+  return new FormData(elements.form)
+
+  // return {
+  //   name: elements.name.value,
+  //   email: elements.email.value,
+  //   phone: elements.phone.value,
+  //   product: elements.product.value,
+  // }
+}
+
+export {elements, insertTestData, getFormInput}
