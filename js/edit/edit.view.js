@@ -19,8 +19,10 @@ function renderRequest(request) {
   elements.email.value = request.email
   elements.phone.value = request.phone
   elements.status.value = request.status
-
-
 }
 
-export {renderRequest}
+function getFormInput() {
+  return new FormData(elements.form)
+}
+
+export {elements, renderRequest, getFormInput}
