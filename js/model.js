@@ -34,15 +34,23 @@ function loadRequests() {
 }
 
 function getRequests() {
-
   return prepareRequests(requests)
+}
+
+const products = {
+  'course-html': 'Курс по верстке',
+  'course-js': 'Курс по JavaScript',
+  'course-vue': 'Курс по Vue JS',
+  'course-php': 'Курс по PHP',
+  'course-wordpress': 'Курс по WordPress'
 }
 
 function prepareRequests(requests) {
   return requests.map((item) => {
     return {
       ...item,
-      date: new Date(item.date).toLocaleDateString()
+      date: new Date(item.date).toLocaleDateString(),
+      productName: products[item.product]
     }
   })
 }

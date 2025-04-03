@@ -9,7 +9,7 @@ function renderRequests (requests) {
     const template = `<tr>
 							<th scope="row">${request.id}</th>
 							<td>${request.date}</td>
-							<td>${request.product}</td>
+							<td>${request.productName}</td>
 							<td>${request.name}</td>
 							<td>${request.email}</td>
 							<td>${request.phone}</td>
