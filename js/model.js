@@ -63,7 +63,10 @@ function prepareRequests(requests) {
 }
 
 function getRequestById(id) {
-  return requests.find((item) => item.id == id)
+  const request =  requests.find((item) => item.id == id)
+  request.dateDate = new Date(request.date).toLocaleDateString()
+  request.dateTime = new Date(request.date).toLocaleTimeString()
+  return request
 }
 
 export {addRequest, getRequests, getRequestById}

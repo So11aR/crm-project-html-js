@@ -6,6 +6,8 @@ function init() {
   const id = getRequestId()
   const request = model.getRequestById(id)
   console.log(request);
+  
+  view.renderRequest(request)
 }
 
 function getRequestId() {
