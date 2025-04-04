@@ -9,13 +9,20 @@ function init() {
 
 function addEventListeners() {
   view.elements.select.addEventListener('change', filterProducts)
+  view.elements.topStatusBar.addEventListener('click', filterByStatus)
 }
 
 function filterProducts() {
   const filter = model.changeFilter('products', this.value)
   const filteredRequests = model.filterRequests(filter)
   view.renderRequests(filteredRequests)
-  
+}
+
+function filterByStatus(e) {
+  const filter = model.changeFilter('status', e.target.dataset.value)
+  const filteredRequests = model.filterRequests(filter)
+  view.renderRequests(filteredRequests)
+
 }
 
 init()

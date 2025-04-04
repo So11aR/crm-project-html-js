@@ -37,13 +37,19 @@ function changeFilter (prop, value) {
 }
 
 function filterRequests(filter) {
-  let filteredRequest
+  let filteredRequests
 
   if (filter.products !== 'all') {
-    filteredRequest = requests.filter((request) => request.product == filter.products)
+    filteredRequests = requests.filter((request) => request.product == filter.products)
+  } else {
+    filteredRequests = [...requests]
   }
 
-  return prepareRequests(filteredRequest) 
+  if (filter.status !== 'all') {
+    filteredRequests = filteredRequests.filter((request) => request.status === filter.status)
+  }
+
+  return prepareRequests(filteredRequests) 
 }
 
 function addRequest(formData) {
