@@ -14,7 +14,8 @@ function addEventListeners() {
 function filterProducts() {
   const filter = model.changeFilter('products', this.value)
   const filteredRequests = model.filterRequests(filter)
-  console.log(filteredRequests);
+  view.renderRequests(filteredRequests)
+  
 }
 
 init()

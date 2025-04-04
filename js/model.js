@@ -43,7 +43,7 @@ function filterRequests(filter) {
     filteredRequest = requests.filter((request) => request.product == filter.products)
   }
 
-  return filteredRequest
+  return prepareRequests(filteredRequest) 
 }
 
 function addRequest(formData) {
