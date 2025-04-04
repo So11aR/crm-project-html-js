@@ -3,7 +3,8 @@ const elements ={
 	select: document.querySelector('#productSelect'),
 	topStatusBar: document.querySelector('#topStatusBar'),
 	leftStatusLinks: document.querySelectorAll('[data-role="left-status"]'),
-	leftPanelNav: document.querySelector('.left-panel__navigation')
+	leftPanelNav: document.querySelector('.left-panel__navigation'),
+	badgeNew: document.querySelector('#badge-new'),
 }
 
 function renderRequests (requests) {
@@ -43,4 +44,14 @@ function updateStatusLinks(value) {
 	elements.leftPanelNav.querySelector(`a[data-value="${value}"]`).classList.add('active')
 }
 
-export {elements, renderRequests, updateStatusLinks}
+function renderBadgeNew(number) {
+	elements.badgeNew.innerText = number
+
+	if (number == 0) {
+		elements.badgeNew.classList.add('none')
+	}
+
+	number == 0 ? elements.badgeNew.classList.add('none') : elements.badgeNew.classList.remove('none')
+}
+
+export {elements, renderRequests, updateStatusLinks, renderBadgeNew}
