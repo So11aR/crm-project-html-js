@@ -5,12 +5,12 @@ function init() {
   const requests = model.getRequests()
   view.renderRequests(requests)
   addEventListeners()
+
   const newRequestCount = model.countNewRequests()
   view.renderBadgeNew(newRequestCount)
 
   const filter = model.getFilter()
-  console.log(filter);
-
+  
   view.updateFilter(filter)
 }
 
