@@ -12,6 +12,40 @@ class Request {
   }
 }
 
+const products = {
+  'course-html': 'Курс по верстке',
+  'course-js': 'Курс по JavaScript',
+  'course-vue': 'Курс по Vue JS',
+  'course-php': 'Курс по PHP',
+  'course-wordpress': 'Курс по WordPress'
+}
+
+const statuses = {
+  'new': 'Новая',
+  'inwork': 'В работе',
+  'complete': 'Завершена'
+}
+
+const filter = {
+  products: 'all',
+  status: 'all'
+}
+
+function changeFilter (prop, value) {
+  filter[prop] = value
+  return filter
+}
+
+function filterRequests(filter) {
+  let filteredRequest
+
+  if (filter.products !== 'all') {
+    filteredRequest = requests.filter((request) => request.product == filter.products)
+  }
+
+  return filteredRequest
+}
+
 function addRequest(formData) {
   // Определяем ID
   const id = requests.length > 0 ? requests[requests.length - 1]['id'] + 1 : 1
@@ -35,20 +69,6 @@ function loadRequests() {
 
 function getRequests() {
   return prepareRequests(requests)
-}
-
-const products = {
-  'course-html': 'Курс по верстке',
-  'course-js': 'Курс по JavaScript',
-  'course-vue': 'Курс по Vue JS',
-  'course-php': 'Курс по PHP',
-  'course-wordpress': 'Курс по WordPress'
-}
-
-const statuses = {
-  'new': 'Новая',
-  'inwork': 'В работе',
-  'complete': 'Завершена'
 }
 
 function prepareRequests(requests) {
@@ -79,4 +99,4 @@ function updateRequest(formData) {
   saveRequests()
 }
 
-export {addRequest, getRequests, getRequestById, updateRequest}
+export {addRequest, getRequests, getRequestById, updateRequest, changeFilter, filterRequests}
