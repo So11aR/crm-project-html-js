@@ -10,6 +10,9 @@ function init() {
 function addEventListeners() {
   view.elements.select.addEventListener('change', filterProducts)
   view.elements.topStatusBar.addEventListener('click', filterByStatus)
+  view.elements.leftStatusLinks.forEach((link) => {
+    link.addEventListener('click', filterByStatus)
+  })
 }
 
 function filterProducts() {
@@ -22,7 +25,7 @@ function filterByStatus(e) {
   const filter = model.changeFilter('status', e.target.dataset.value)
   const filteredRequests = model.filterRequests(filter)
   view.renderRequests(filteredRequests)
-  view.updateTopStatusBar(e.target.dataset.value)
+  view.updateStatusLinks(e.target.dataset.value)
 }
 
 init()
