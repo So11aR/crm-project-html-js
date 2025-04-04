@@ -54,4 +54,14 @@ function renderBadgeNew(number) {
 	number == 0 ? elements.badgeNew.classList.add('none') : elements.badgeNew.classList.remove('none')
 }
 
-export {elements, renderRequests, updateStatusLinks, renderBadgeNew}
+function updateFilter(filter) {
+	elements.select.value = filter.products
+
+	elements.topStatusBar.querySelectorAll('a').forEach((link) => link.classList.remove('active'))
+	elements.topStatusBar.querySelector(`a[data-value="${filter.status}"]`).classList.add('active')
+
+	elements.leftStatusLinks.forEach((link) => link.classList.remove('active'))
+	elements.leftPanelNav.querySelector(`a[data-value="${filter.status}"]`).classList.add('active')
+}
+
+export {elements, renderRequests, updateStatusLinks, renderBadgeNew, updateFilter}
